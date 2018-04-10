@@ -1,0 +1,7 @@
+{
+  "name": "test",
+  "short_name": "test",
+  "description": "Test of polymer init",
+  "start_url": "/",
+  "display": "standalone"
+}
