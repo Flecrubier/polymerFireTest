@@ -88,6 +88,13 @@
       <paper-input style="width:20em" label="Nom de plante" value="{{plante}}" maxlength="30"></paper-input>
       <br/>
       <paper-button raised on-tap="_addData" hidden$="[[!plante]]">Ajouter</paper-button>
+
+      <br/>
+      <h3>Recherche par Title</h3>
+      <paper-input style="width:20em" label="Titre de la plante recherchée" value="{{researchedPlant}}" maxlength="30"></paper-input>
+      <br/>
+      <paper-button raised on-tap="_researchData" hidden$="[[!researchedPlant]]">Rechercher</paper-button>
+
     </template>
 
     <br/>
@@ -155,7 +162,17 @@
           by: this.user.displayName,
           body : "Je suis une " + this.plante
         });
+      }
 
+      _researchData(){
+        for(var i = 0 ; i < this.articles.length ; i++){
+          if (this.articles[i].title.toLowerCase() === this.researchedPlant.toLowerCase()){
+            console.log("Trouvé : ");
+            console.log("Title : " + this.articles[i].title);
+            console.log("By : " + this.articles[i].by);
+            console.log("Body : " + this.articles[i].body);
+          }
+        }
       }
 
 
